@@ -38,6 +38,11 @@ print("-------------------------------------------\n"
 
 # Write your code below:
 
+price = 45.00
+VAT_RATE = 0.20
+
+total_cost = price + price * VAT_RATE
+print(f"Cost: {round(total_cost, 2)}")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -71,6 +76,16 @@ print("\n-------------------------------------------\n"
 
 # Write your code below:
 
+budget = 50
+
+if total_cost <= budget:
+    print("Purchase approved: Within budget.")
+elif total_cost > budget and total_cost < 60:
+    print("Warning: Purchase exceeds budget but is manageable.")
+elif total_cost > 60:
+    print("Purchase denied: Budget severely exceeded.")
+else:
+    print("Error!")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -108,10 +123,15 @@ print("\n-------------------------------------------\n"
 def calculate_area():
     # Insert try/except block here
     # Remember to handle the input() and int() conversions inside the try block
-    length = int(input("Enter rectangle length: "))
-    width = int(input("Enter rectangle width: "))
-    area = length * width
-    return area
+    try:
+        length = int(input("Enter rectangle length: "))
+        width = int(input("Enter rectangle width: "))
+        area = length * width
+        return area
+    except ValueError:
+        print("Error: Please enter only numerical values.")
+        return 0
+
     # Insert except block here
 
 # Call the function:
@@ -155,6 +175,14 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 
 # Write your code below:
 
+total_sales = 0
+weeks = 0
+for sale in weekly_sales:
+    total_sales = total_sales + sale
+    weeks += 1
+average_sale = total_sales / weeks
+print(round(average_sale, 2))
+print(round(total_sales, 2))
 
 # -------------------------------------------
 # CHECKPOINT
@@ -194,6 +222,22 @@ product_catalogue = {
 # 4. If the code does not exist, print "Error: Product code not found."
 
 # Write your code below:
+
+search = input("Enter a product code:\n").strip().upper()
+found = False
+
+try:
+    for prd in product_catalogue:
+        if search == prd:
+            print("Product found:")
+            product = product_catalogue.get(search)
+            print(f"{prd}: {product}")
+            found = True
+    if found == False:
+        print("Error: Product code not found.")
+except ValueError:
+    print("Invalid datatype input")
+
 
 
 # -------------------------------------------
@@ -245,6 +289,16 @@ print("\n-------------------------------------------\n"
 
 # Write your code below:
 
+secret_colour = "magenta"
+guess = ""
+
+while guess != secret_colour:
+    guess = input("Guess the colour!:\n").strip().lower()
+    if guess == secret_colour:
+        print("You guessed it!")
+        break
+    else:
+        print("Try again")
 
 # -------------------------------------------
 
@@ -269,6 +323,10 @@ even_numbers = []
 
 # Write your code below:
 
+for i in data_set:
+    if i % 2 == 0:
+        even_numbers.append(i)
+print(even_numbers)
 
 # -------------------------------------------
 # ADVANCED ACTIVITY: Combining Concepts
@@ -290,7 +348,12 @@ def process_order(order_dict, catalogue):
     grand_total = 0
     print("--- Processing Order ---")
     # Insert code to loop through the order and calculate the total here
-    return grand_total
+    for item in order_dict:
+        print(item)
+    #     item_cost = catalogue.get(item)
+    #     subtotal = item_cost * order_dict.get(item)
+    #     grand_total = grand_total + subtotal
+    # return grand_total
 
 # Test the function:
 user_order = {
@@ -302,6 +365,7 @@ user_order = {
 # Call the function and print the final bill (formatted to two decimal places):
 # Write your code below:
 
+print(process_order(user_order, product_catalogue))
 
 # -------------------------------------------
 # FINAL CHECKPOINT
