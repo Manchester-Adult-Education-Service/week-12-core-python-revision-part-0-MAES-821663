@@ -175,6 +175,14 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 
 # Write your code below:
 
+total_sales = 0
+weeks = 0
+for sale in weekly_sales:
+    total_sales = total_sales + sale
+    weeks += 1
+average_sale = total_sales / weeks
+print(round(average_sale, 2))
+print(round(total_sales, 2))
 
 # -------------------------------------------
 # CHECKPOINT
