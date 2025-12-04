@@ -38,6 +38,11 @@ print("-------------------------------------------\n"
 
 # Write your code below:
 
+price = 45.00
+VAT_RATE = 0.20
+
+final_price = price + price * VAT_RATE
+print(f"Cost: {round(final_price, 2)}")
 
 # -------------------------------------------
 # CHECKPOINT
