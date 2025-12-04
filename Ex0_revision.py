@@ -223,6 +223,19 @@ product_catalogue = {
 
 # Write your code below:
 
+search = input("Enter a product code:\n").strip().upper()
+found = False
+
+for prd in product_catalogue:
+    if search == prd:
+        print("Product found:")
+        product = product_catalogue.get(search)
+        print(f"{prd}: {product}")
+        found = True
+if found == False:
+    print("Error: Product code not found.")
+
+
 
 # -------------------------------------------
 # CHECKPOINT
