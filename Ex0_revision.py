@@ -41,8 +41,8 @@ print("-------------------------------------------\n"
 price = 45.00
 VAT_RATE = 0.20
 
-final_price = price + price * VAT_RATE
-print(f"Cost: {round(final_price, 2)}")
+total_cost = price + price * VAT_RATE
+print(f"Cost: {round(total_cost, 2)}")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -76,6 +76,16 @@ print("\n-------------------------------------------\n"
 
 # Write your code below:
 
+budget = 50
+
+if total_cost <= budget:
+    print("Purchase approved: Within budget.")
+elif total_cost > budget and total_cost < 60:
+    print("Warning: Purchase exceeds budget but is manageable.")
+elif total_cost > 60:
+    print("Purchase denied: Budget severely exceeded.")
+else:
+    print("Error!")
 
 # -------------------------------------------
 # CHECKPOINT
